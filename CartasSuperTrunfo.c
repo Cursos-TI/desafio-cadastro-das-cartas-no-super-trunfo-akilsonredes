@@ -68,7 +68,7 @@ int main() {
     printf("Digite a quantidade de pontos turísticos: ");
     scanf("%d",&pontos);
     //Impressão 2ª Carta
-    printf("CARTA 1 \n");
+    printf("CARTA 2 \n");
     printf("Estado: %s \n",estado);
     printf("Cidade: %s \n",cidade);
     printf("código: %s \n",codigo);
