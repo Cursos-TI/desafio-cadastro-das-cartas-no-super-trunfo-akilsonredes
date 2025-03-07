@@ -145,9 +145,9 @@ int main() {
     }
 
     if(spA > spB){
-        printf("Para o atributo SUPER PONTOS a carta 1 com (%.2f) venceu a carta 2 com (%.2f) \n", spA, spB); 
+        printf("Para o atributo SUPER PODER a carta 1 com (%.2f) venceu a carta 2 com (%.2f) \n", spA, spB); 
     }else{
-        printf("Para o atributo SUPER PONTOS a carta 2 com (%.2f) venceu a carta 1 com (%.2f) \n", spB, spA);
+        printf("Para o atributo SUPER PODER a carta 2 com (%.2f) venceu a carta 1 com (%.2f) \n", spB, spA);
     }
 
     return 0;
