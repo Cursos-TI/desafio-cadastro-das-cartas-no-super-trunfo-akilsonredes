@@ -30,6 +30,7 @@ int main() {
     float areaA,areaB, pibA,pibB, dpA, dpB, ppA, ppB, spA, spB;
     int populacaoA,populacaoB;
     int pontosTA, pontosTB;
+    int atributo;
 
     //Inicio (1ª Carta)
     printf("digite o nome do estado: ");
@@ -95,60 +96,83 @@ int main() {
     printf("O PIB per capta é: %.2f \n", ppB);
     printf("O Super Poder é: %.2f \n", spB);
 
-    //CÓDIGO DA COMPARAÇÃO DAS CARTAS FEITA PARA O DESAFIO DO NÍVEL MESTRE DO 1º TEMA DE ESTUDO 
-    //printf("A ÁREA DE (%.2f) DA CARTA 1 VENCEU A AREA DE (%.2f) DA CARTA 2: %d \n",areaA,areaB, areaA > areaB);
-    //printf("A POPULAÇÃO DE (%u) DA CARTA 1 VENCEU A POPULAÇÃO DE (%u) DA CARTA 2: %d \n",populacaoA, populacaoB, populacaoA > populacaoB);
-    //printf("O PIB DE (%.2f) DA CARTA 1 VENCEU O PIB DE (%.2f) DA CARTA 2: %d \n",pibA, pibB, pibA > pibB);
-    //printf("O PIB PER CAPTA DE (%.2f) DA CARTA 1 VENCEU O PIB PER CAPTA DE (%.2f) DA CARTA 2: %d \n",ppA, ppB, ppA > ppB);
-    //printf("A DENSIDADE POPULACIONAL DE (%.2f) DA CARTA 1 VENCEU A DENSIDADE POPULACIONAL DE (%.2f) DA CARTA 2: %d \n",dpA, dpB, dpA < dpB);
-    //printf("A QUANTIDADE DE PONTOS TURÍSTICOS DE (%d) DA CARTA 1 VENCEU A QUANTIDADE DE PONTOS TURÍSTICOS DE (%d) DA CARTA 2: %d \n",pontosTA, pontosTB, pontosTA > pontosTB);
-    //printf("O SUPER PODER DE (%.2f) DA CARTA 1 VENCEU O SUPER PODER DE (%.2f) DA CARTA 2: %d",spA, spB, spA > spB);
-    
-    // CÓDIGO DE COMPARAÇÃO DAS CARTAS PARA O DESAFIO DO NIVEL NOVATO DO 2º TEMA DE ESTUDO (AGORA UTILIZANDO O IF/ELSE)
+   //Escolha do atributo a ser comparado.
 
-    //Atributo Área
+    printf("***Agora escolha o atributo para comparação das cartas*** \n");
+    printf("Digite (1) para ÁREA \n");
+    printf("Digite (2) para POPULAÇÃO \n");
+    printf("Digite (3) para PIB \n");
+    printf("Digite (4) para PIB PERCAPTA \n");
+    printf("Digite (5) para DENSIDADE POPULACIONAL \n");
+    printf("Digite (6) para PONTOS TURÍSTICOS \n");
+    printf("Digite (7) para SUPER PODER \n");
+    printf("***DIGITE A OPÇÃO***");
+    scanf("%d", &atributo);
+   
+    //Switch para escolha do atributo Área ( DESAFIO DO NIVEL AVENTUREIRO DO 2º TEMA DE ESTUDO)
 
+    switch (atributo)
+    {
+    case 1:
     if (areaA > areaB) {
         printf("Para o atributo área a carta 1 com (%.2f)km² venceu a carta 2 com (%.2f)km²! \n", areaA, areaB);
-    } else{
-        printf("Para o atributo ÁREA a carta 2 com (%.2f)km² venceu a carta 1 com (%.2f)km²! \n", areaB, areaA);
+    } else{if(areaA < areaB){
+        printf("Para o atributo ÁREA a carta 2 com (%.2f)km² venceu a carta 1 com (%.2f)km²! \n", areaB, areaA);}
+        else{printf("Para o atributo ÁREA as cartas empataram");}
     }
-
+        break;
+    case 2:
     if(populacaoA > populacaoB){
         printf("Para o atributo POPULAÇÃO a carta 1 com (%d) pessoas venceu a carta 2 com (%d)pessoas! \n", populacaoA, populacaoB);
-    }else{
-        printf("Para o atributo POPULAÇÃO a carta 2 com (%d) pessoas venceu a carta 1 com (%d)pessoas! \n", populacaoB, populacaoA);
+    }else{if(populacaoA < populacaoB){
+        printf("Para o atributo POPULAÇÃO a carta 2 com (%d) pessoas venceu a carta 1 com (%d)pessoas! \n", populacaoB, populacaoA);}
+        else {printf("Para o atributo POPULAÇÃO as cartas empataram");}
     }
-    
+    break;
+    case 3:
     if (pibA > pibB){
         printf("Para o atributo PIB a carta 1 com R$(%.2f) venceu a carta 2 com R$(%.2f) \n", pibA, pibB);
-    }else{
-        printf("Para o atributo PIB a carta 2 com R$(%.2f) venceu a carta 1 com R$(%.2f) \n", pibB, pibA); 
+    }else{ if(pibA < pibB){
+        printf("Para o atributo PIB a carta 2 com R$(%.2f) venceu a carta 1 com R$(%.2f) \n", pibB, pibA);}
+        else{printf("Para o atributo POPULAÇÃO as cartas empataram");} 
     }
-    
+    break;
+    case 4:
     if(ppA > ppB){
         printf("Para o atributo PIB PERCAPTA a carta 1 com R$(%.2f) venceu a carta 2 com R$(%.2f) \n", ppA, ppB); 
-    }else{
-        printf("Para o atributo PIB PERCAPTA a carta 2 com R$(%.2f) venceu a carta 1 com R$(%.2f) \n", ppB, ppA);
+    }else{if(ppA < ppB){
+        printf("Para o atributo PIB PERCAPTA a carta 2 com R$(%.2f) venceu a carta 1 com R$(%.2f) \n", ppB, ppA);}
+        else{printf("Para o atributo PIB PERCAPTA as cartas empataram");}
     }
-    
+    break;
+    case 5:
     if(dpA < dpB){
         printf("Para o atributo DENSIDADE POPULACIONAL a carta 1 com (%.2f) habitantes venceu a carta 2 com (%.2f) habitantes \n", dpA, dpB); 
-    }else{
-        printf("Para o atributo DENSIDADE POPULACIONAL a carta 2 com (%.2f) habitantes venceu a carta 1 com (%.2f) habitantes \n", dpB, dpA);
+    }else{if(dpA > dpB){
+        printf("Para o atributo DENSIDADE POPULACIONAL a carta 2 com (%.2f) habitantes venceu a carta 1 com (%.2f) habitantes \n", dpB, dpA);}
+        else{printf("Para o atributo DENSIDADE POPULACIONAL as cartas empataram");}
     }
-
+    break;
+    case 6:
     if(pontosTA > pontosTB){
         printf("Para o atributo PONTOS TURÍSTICOS a carta 1 com (%.d) venceu a carta 2 com (%d) \n", pontosTA, pontosTB); 
-    }else{
-        printf("Para o atributo PONTOS TURÍSTICOS a carta 2 com (%.d) venceu a carta 1 com (%d) \n", pontosTB, pontosTA);
+    }else{if(pontosTA < pontosTB){
+        printf("Para o atributo PONTOS TURÍSTICOS a carta 2 com (%.d) venceu a carta 1 com (%d) \n", pontosTB, pontosTA);}
+        else{printf("Para o atributo DENSIDADE POPULACIONAL as cartas empataram");}
     }
-
+    break;
+    case 7:
     if(spA > spB){
         printf("Para o atributo SUPER PODER a carta 1 com (%.2f) venceu a carta 2 com (%.2f) \n", spA, spB); 
-    }else{
-        printf("Para o atributo SUPER PODER a carta 2 com (%.2f) venceu a carta 1 com (%.2f) \n", spB, spA);
+    }else{if(spA < spB){
+        printf("Para o atributo SUPER PODER a carta 2 com (%.2f) venceu a carta 1 com (%.2f) \n", spB, spA);}
+        else{printf("Para o atributo DENSIDADE POPULACIONAL as cartas empataram");}
     }
-
-    return 0;
+    break;
+    default:
+    printf("Opção inválidade");   
+    break;
+    }
+    
+   return 0;
 }
