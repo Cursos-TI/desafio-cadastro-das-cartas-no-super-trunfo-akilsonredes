@@ -30,9 +30,11 @@ int main() {
     float areaA,areaB, pibA,pibB, dpA, dpB, ppA, ppB, spA, spB;
     int populacaoA,populacaoB;
     int pontosTA, pontosTB;
-    int atributo;
+    int PrimeiroAtributo, SegundoAtributo;
+    float resultadoA1, resultadoB1,resultadoA2, resultadoB2;
 
     //Inicio (1ª Carta)
+    printf("***DIGITE OS ATRIBUTOS DA SUA CARTA*** \n");
     printf("digite o nome do estado: ");
     scanf("%s",estadoA);
     printf("Digite o nome da cidade: ");
@@ -52,7 +54,7 @@ int main() {
     spA = areaA+pibA+populacaoA+pontosTA+(1/dpA)+ppA+spA;
     
     //Impressão 1ª Carta
-    printf("CARTA 1 \n");
+    printf("***ATRIBUTOS DA SUA CARTA*** \n");
     printf("Estado: %s \n",estadoA);
     printf("Cidade: %s \n",cidadeA);
     printf("código: %s \n",codigoA);
@@ -65,6 +67,7 @@ int main() {
     printf("O Super Poder é: %.2f \n", spA);
 
     //Inicio (2ª Carta)
+    printf("***DIGITE OS ATRIBUTOS DA CARTA DO ADVERSÁRIO*** \n");
     printf("digite o nome do estado: ");
     scanf("%s",estadoB);
     printf("Digite o nome da cidade: ");
@@ -84,7 +87,7 @@ int main() {
     spB = areaB+pibB+populacaoB+pontosTB+(1/dpB)+ppB+spB;
    
     //Impressão 2ª Carta
-    printf("CARTA 2 \n");
+    printf("ATRIBUTOS DA CARTA DO ADVERSÁRIO*** \n");
     printf("Estado: %s \n",estadoB);
     printf("Cidade: %s \n",cidadeB);
     printf("código: %s \n",codigoB);
@@ -96,9 +99,9 @@ int main() {
     printf("O PIB per capta é: %.2f \n", ppB);
     printf("O Super Poder é: %.2f \n", spB);
 
-   //Escolha do atributo a ser comparado.
+   //Escolha do Primeiro Atributo a ser comparado.
 
-    printf("***Agora escolha o atributo para comparação das cartas*** \n");
+    printf("***PRIMEIRO ATRIBUTO A SER COMPARADO*** \n");
     printf("Digite (1) para ÁREA \n");
     printf("Digite (2) para POPULAÇÃO \n");
     printf("Digite (3) para PIB \n");
@@ -106,73 +109,192 @@ int main() {
     printf("Digite (5) para DENSIDADE POPULACIONAL \n");
     printf("Digite (6) para PONTOS TURÍSTICOS \n");
     printf("Digite (7) para SUPER PODER \n");
-    printf("***DIGITE A OPÇÃO***");
-    scanf("%d", &atributo);
+    
+    printf("DIGITE O PRIMEIRO ATRIBUTO: ");
+    scanf("%d", &PrimeiroAtributo);
    
-    //Switch para escolha do atributo Área ( DESAFIO DO NIVEL AVENTUREIRO DO 2º TEMA DE ESTUDO)
+    //1º SWITCH PARA ESCOLHA DO 1º ATRIBUTO
 
-    switch (atributo)
+    switch (PrimeiroAtributo)
     {
     case 1:
-    if (areaA > areaB) {
-        printf("Para o atributo área a carta 1 com (%.2f)km² venceu a carta 2 com (%.2f)km²! \n", areaA, areaB);
-    } else{if(areaA < areaB){
-        printf("Para o atributo ÁREA a carta 2 com (%.2f)km² venceu a carta 1 com (%.2f)km²! \n", areaB, areaA);}
-        else{printf("Para o atributo ÁREA as cartas empataram");}
+    printf("Você escolheu o atributo ÁREA \n");
+    if (areaA == areaB){
+        printf ("Para o atributo Área houve empate com o valor %.2f para ambas as cartas \n", areaA);
     }
-        break;
-    case 2:
-    if(populacaoA > populacaoB){
-        printf("Para o atributo POPULAÇÃO a carta 1 com (%d) pessoas venceu a carta 2 com (%d)pessoas! \n", populacaoA, populacaoB);
-    }else{if(populacaoA < populacaoB){
-        printf("Para o atributo POPULAÇÃO a carta 2 com (%d) pessoas venceu a carta 1 com (%d)pessoas! \n", populacaoB, populacaoA);}
-        else {printf("Para o atributo POPULAÇÃO as cartas empataram");}
-    }
-    break;
-    case 3:
-    if (pibA > pibB){
-        printf("Para o atributo PIB a carta 1 com R$(%.2f) venceu a carta 2 com R$(%.2f) \n", pibA, pibB);
-    }else{ if(pibA < pibB){
-        printf("Para o atributo PIB a carta 2 com R$(%.2f) venceu a carta 1 com R$(%.2f) \n", pibB, pibA);}
-        else{printf("Para o atributo POPULAÇÃO as cartas empataram");} 
-    }
-    break;
-    case 4:
-    if(ppA > ppB){
-        printf("Para o atributo PIB PERCAPTA a carta 1 com R$(%.2f) venceu a carta 2 com R$(%.2f) \n", ppA, ppB); 
-    }else{if(ppA < ppB){
-        printf("Para o atributo PIB PERCAPTA a carta 2 com R$(%.2f) venceu a carta 1 com R$(%.2f) \n", ppB, ppA);}
-        else{printf("Para o atributo PIB PERCAPTA as cartas empataram");}
-    }
-    break;
-    case 5:
-    if(dpA < dpB){
-        printf("Para o atributo DENSIDADE POPULACIONAL a carta 1 com (%.2f) habitantes venceu a carta 2 com (%.2f) habitantes \n", dpA, dpB); 
-    }else{if(dpA > dpB){
-        printf("Para o atributo DENSIDADE POPULACIONAL a carta 2 com (%.2f) habitantes venceu a carta 1 com (%.2f) habitantes \n", dpB, dpA);}
-        else{printf("Para o atributo DENSIDADE POPULACIONAL as cartas empataram");}
-    }
-    break;
-    case 6:
-    if(pontosTA > pontosTB){
-        printf("Para o atributo PONTOS TURÍSTICOS a carta 1 com (%.d) venceu a carta 2 com (%d) \n", pontosTA, pontosTB); 
-    }else{if(pontosTA < pontosTB){
-        printf("Para o atributo PONTOS TURÍSTICOS a carta 2 com (%.d) venceu a carta 1 com (%d) \n", pontosTB, pontosTA);}
-        else{printf("Para o atributo DENSIDADE POPULACIONAL as cartas empataram");}
-    }
-    break;
-    case 7:
-    if(spA > spB){
-        printf("Para o atributo SUPER PODER a carta 1 com (%.2f) venceu a carta 2 com (%.2f) \n", spA, spB); 
-    }else{if(spA < spB){
-        printf("Para o atributo SUPER PODER a carta 2 com (%.2f) venceu a carta 1 com (%.2f) \n", spB, spA);}
-        else{printf("Para o atributo DENSIDADE POPULACIONAL as cartas empataram");}
-    }
-    break;
-    default:
-    printf("Opção inválidade");   
-    break;
-    }
+    else {areaA > areaB? printf ("Para o atributo Área você venceu, pois sua carta tem o valor %.2f e a carta do adversário tinha o valor %.2f \n", areaA, areaB) : printf ("Para o atributo Área você perdeu, pois sua carta tem o valor %.2f e a carta do adversário tinha o valor %.2f \n", areaA, areaB);}
     
-   return 0;
+    resultadoA1 = areaA;
+    resultadoB1 = areaB;
+    break;
+    
+    case 2:
+    printf("Você escolheu o atributo POPULAÇÃO \n");
+    if(populacaoA == populacaoB){
+    printf ("Para o atributo População houve empate com o valor %d para ambas as cartas \n", populacaoA);   
+    }
+    else {populacaoA > populacaoB? printf ("Para o atributo população você venceu, pois sua carta tinha o valor %d e a carta do adversário tinha o valor %d \n", populacaoA, populacaoB) : printf ("Para o atributo população você perdeu, pois sua carta tinha o valor %d e a carta do adversário tinha o valor %d \n", populacaoA, populacaoB);}
+    
+    resultadoA1 = populacaoA;
+    resultadoB1 = populacaoB;
+    break;
+    
+    case 3:
+    printf("Você escolheu o atributo PIB \n");
+    if(pibA == pibB){
+        printf ("Para o atributo PIB houve empate com o valor %.2f para ambas as cartas \n", pibA);   
+    }
+    else {pibA > pibB? printf ("Para o atributo PIB você venceu, pois sua carta tinha o valor %.2f e a carta do adversário tinha o valor %.2f /n", pibA, pibB) : printf ("Para o atributo população você perdeu, pois sua carta tinha o valor %.2f e a carta do adversário tinha o valor %.2f \n", pibA, pibB);}
+    resultadoA1 = pibA;
+    resultadoB1 = pibB;
+    break;
+    
+    case 4:
+    printf("Você escolheu o atributo PIB PERCAPTA \n");
+    if(ppA == ppB){
+        printf ("Para o atributo PIB PERCAPTA houve empate com o valor %.2f para ambas as cartas \n", ppA);   
+   
+    }else {ppA > ppB? printf ("Para o atributo PIB PERCAPTA você venceu, pois sua carta tinha o valor %.2f e a carta do adversário tinha o valor %.2f /n", ppA, ppB) : printf ("Para o atributo PIP PERCAPTA você perdeu, pois sua carta tinha o valor %.2f e a carta do adversário tinha o valor %.2f \n", ppA, ppB);}
+    resultadoA1 = ppA;
+    resultadoB1 = ppB;    
+   break;
+    
+    case 5:
+    printf("Você escolheu o atributo DENSIDADE POPULACIONAL \n");
+    if(dpA == dpB){
+        printf ("Para o atributo DENSIDADE POPULACIONAL houve empate com o valor %.2f para ambas as cartas \n", dpA);   
+    }else {1/dpA > 1/dpB? printf ("Para o atributo Densidade populacional você venceu, pois sua carta tinha o valor %.2f e a carta do adversário tinha o valor %.2f \n", dpA, dpB) : printf ("Para o atributo Densidade Populacional você perdeu, pois sua carta tinha o valor %.2f e a carta do adversário tinha o valor %.2f \n", dpA, dpB);}
+    resultadoA1 = 1/dpA;
+    resultadoB1 = 1/dpB;
+    break;
+    
+    case 6:
+    
+    printf("Você escolheu o atributo PONTOS TURÍSTICOS \n");
+    if(pontosTA == pontosTB){
+        printf ("Para o atributo PONTOS TURÍSTICOS houve empate com o valor %d para ambas as cartas \n", pontosTA);   
+    }else{pontosTA > pontosTB? printf ("Para o atributo Pontos  Turísticos você venceu, pois sua carta tinha o valor %d e a carta do adversário tinha o valor %d \n", pontosTA, pontosTB) : printf ("Para o atributo Pontos Turísticos você perdeu, pois sua carta tinha o valor %d e a carta do adversário tinha o valor %d \n", pontosTA, pontosTB);}
+    resultadoA1 = pontosTA;
+    resultadoB1 = pontosTB;  
+    break;
+    
+    case 7:
+    printf("Você escolheu o atributo SUPER PODER \n");
+    if(spA == spB){
+        printf ("Para o atributo SUPER PODER houve empate com o valor %.2f para ambas as cartas \n", spA);   
+    }else {spA > spB? printf ("Para o atributo SuperPoder você venceu, pois sua carta tinha o valor %.2f e a carta do adversário tinha o valor %.2f \n", spA, spB) : printf ("Para o atributo SuperPoder você perdeu, pois sua carta tinha o valor %.2f e a carta do adversário tinha o valor %.2f \n", spA, spB);}
+    resultadoA1 = spA;
+    resultadoB1 = spB;
+    break;
+    
+    default:
+    printf("Opção inválidade \n");   
+    break;
+    
+}
+    
+    //ESCOLHA DO 2º ATRIBUTO.
+
+    printf("***SEGUNDO ATRIBUTO A SER COMPARADO*** \n");
+    printf("Digite (1) para ÁREA \n");
+    printf("Digite (2) para POPULAÇÃO \n");
+    printf("Digite (3) para PIB \n");
+    printf("Digite (4) para PIB PERCAPTA \n");
+    printf("Digite (5) para DENSIDADE POPULACIONAL \n");
+    printf("Digite (6) para PONTOS TURÍSTICOS \n");
+    printf("Digite (7) para SUPER PODER \n");
+    
+    printf("DIGITE O SEGUNDO ATRIBUTO: ");
+    scanf("%d", &SegundoAtributo);
+   
+   if (PrimeiroAtributo == SegundoAtributo){
+    printf ("Você Escolheu o Mesmo Atributo a Ser Comparado");
+   }else {switch (SegundoAtributo)
+    {
+    case 1:
+    printf("Você escolheu o atributo ÁREA \n");
+    if (areaA == areaB){
+        printf ("Para o atributo Área houve empate com o valor %.2f para ambas as cartas \n", areaA);
+    }
+    else {areaA > areaB? printf ("Para o atributo Área você venceu, pois sua carta tem o valor %.2f e a carta do adversário tinha o valor %.2f \n", areaA, areaB) : printf ("Para o atributo Área você perdeu, pois sua carta tem o valor %.2f e a carta do adversário tinha o valor %.2f \n", areaA, areaB);}
+    
+    resultadoA2 = areaA;
+    resultadoB2 = areaB;
+    break;
+    
+    case 2:
+    printf("Você escolheu o atributo POPULAÇÃO \n");
+    if(populacaoA == populacaoB){
+    printf ("Para o atributo População houve empate com o valor %d para ambas as cartas \n", populacaoA);   
+    }
+    else {populacaoA > populacaoB? printf ("Para o atributo população você venceu, pois sua carta tinha o valor %d e a carta do adversário tinha o valor %d \n", populacaoA, populacaoB) : printf ("Para o atributo população você perdeu, pois sua carta tinha o valor %d e a carta do adversário tinha o valor %d \n", populacaoA, populacaoB);}
+    
+    resultadoA2 = populacaoA;
+    resultadoB2 = populacaoB;
+    break;
+    
+    case 3:
+    printf("Você escolheu o atributo PIB \n");
+    if(pibA == pibB){
+        printf ("Para o atributo PIB houve empate com o valor %.2f para ambas as cartas \n", pibA);   
+    }
+    else {pibA > pibB? printf ("Para o atributo PIB você venceu, pois sua carta tinha o valor %.2f e a carta do adversário tinha o valor %.2f /n", pibA, pibB) : printf ("Para o atributo população você perdeu, pois sua carta tinha o valor %.2f e a carta do adversário tinha o valor %.2f \n", pibA, pibB);}
+    resultadoA2 = pibA;
+    resultadoB2 = pibB;
+    break;
+    
+    case 4:
+    printf("Você escolheu o atributo PIB PERCAPTA \n");
+    if(ppA == ppB){
+        printf ("Para o atributo PIB PERCAPTA houve empate com o valor %.2f para ambas as cartas \n", ppA);   
+   
+    }else {ppA > ppB? printf ("Para o atributo PIB PERCAPTA você venceu, pois sua carta tinha o valor %.2f e a carta do adversário tinha o valor %.2f \n", ppA, ppB) : printf ("Para o atributo PIP PERCAPTA você perdeu, pois sua carta tinha o valor %.2f e a carta do adversário tinha o valor %.2f \n", ppA, ppB);}
+    resultadoA2 = ppA;
+    resultadoB2 = ppB;    
+   break;
+    
+    case 5:
+    printf("Você escolheu o atributo DENSIDADE POPULACIONAL \n");
+    if(dpA == dpB){
+        printf ("Para o atributo DENSIDADE POPULACIONAL houve empate com o valor %.2f para ambas as cartas \n", dpA);   
+    }else {1/dpA > 1/dpB? printf ("Para o atributo Densidade populacional você venceu, pois sua carta tinha o valor %.2f e a carta do adversário tinha o valor %.2f \n", dpA, dpB) : printf ("Para o atributo Densidade Populacional você perdeu, pois sua carta tinha o valor %.2f e a carta do adversário tinha o valor %.2f \n", dpA, dpB);}
+    resultadoA2 = 1/dpA;
+    resultadoB2 = 1/dpB;
+    break;
+    
+    case 6:
+    
+    printf("Você escolheu o atributo PONTOS TURÍSTICOS \n");
+    if(pontosTA == pontosTB){
+        printf ("Para o atributo PONTOS TURÍSTICOS houve empate com o valor %d para ambas as cartas \n", pontosTA);   
+    }else{pontosTA > pontosTB? printf ("Para o atributo Pontos  Turísticos você venceu, pois sua carta tinha o valor %d e a carta do adversário tinha o valor %d \n", pontosTA, pontosTB) : printf ("Para o atributo Pontos Turísticos você perdeu, pois sua carta tinha o valor %d e a carta do adversário tinha o valor %d \n", pontosTA, pontosTB);}
+    resultadoA2 = pontosTA;
+    resultadoB2 = pontosTB;  
+    break;
+    
+    case 7:
+    printf("Você escolheu o atributo SUPER PODER \n");
+    if(spA == spB){
+        printf ("Para o atributo SUPER PODER houve empate com o valor %.2f para ambas as cartas \n", spA);   
+    }else {spA > spB? printf ("Para o atributo SuperPoder você venceu, pois sua carta tinha o valor %.2f e a carta do adversário tinha o valor %.2f \n", spA, spB) : printf ("Para o atributo SuperPoder você perdeu, pois sua carta tinha o valor %.2f e a carta do adversário tinha o valor %.2f \n", spA, spB);}
+    resultadoA2 = spA;
+    resultadoB2 = spB;
+    break;
+    
+    default:
+    printf("Opção inválidade \n");   
+    break;
+    
+}
+
+if ((resultadoA1+resultadoA2) == (resultadoB1+resultadoB2)){
+    printf("***RESULTADO FINAL: Jogo empatado***");
+   }else{if((resultadoA1+resultadoA2) > (resultadoB1+resultadoB2)){
+    printf("***RESULTADO FINAL: Você ganhou com %.2f pontos contra %.2f pontos do adversário*** \n", resultadoA1+resultadoA2, resultadoB1+resultadoB2);
+   }else {printf("***RESULTADO FINAL: Você perdeu com %.2f pontos contra %.2f pontos do adversário*** \n", resultadoA1+resultadoA2, resultadoB1+resultadoB2);}}
+
+   }
+   
+   
+    return 0;
 }
